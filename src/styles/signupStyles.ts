@@ -1,18 +1,17 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { COLORS } from '@/constants/colors';
-import { typography } from "@/theme/typography";
 
 export const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: COLORS.background,
-        
+        backgroundColor: COLORS.background,  
     },
     box1:{
-        
         flex: 1,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginLeft: 30,
+        marginRight: 30,    
     },
     box2:{
         flex: 1,
@@ -23,7 +22,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         marginLeft: 30,
         marginRight: 30,
-        justifyContent: "space-between",
+        justifyContent: "space-between", 
     },
      containerIcon:{
         width: 50,
@@ -48,17 +47,18 @@ export const styles = StyleSheet.create({
         marginTop: 10,
         justifyContent: "center",
         alignItems: "center",
-        width: Dimensions.get("window").width * 0.6,
+        width: Dimensions.get("window").width * 0.8,
      },
      text1:{
         color: COLORS.primary,
      },
      text2:{
-        paddingLeft: 20,
-        fontSize: 15
+        // paddingLeft: 30,
+        fontSize: 15,
+        textAlign: "center",
      },
      containerInput:{
-        marginTop: 20,
+        marginTop: 10,
         marginBottom: 5,
         flexDirection: "row",
         alignItems: "center",
@@ -101,6 +101,8 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.30,
         shadowRadius: 4.65,
         elevation: 8,
+
+        marginTop: Dimensions.get("window").height * 0.08,
        },
        textBtn3:{
          color: COLORS.background,

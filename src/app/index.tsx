@@ -1,8 +1,17 @@
-import { View } from 'react-native';
-import Signin from './pages/signin';
+import Signin from './(auth)/signin';
+import Home from './(app)/home';
 
 export default function Index() {
- return (
-   <Signin />
-  );
+
+  let loading = false;
+
+  if(!loading) {
+    return(
+      <Signin />
+    )
+  }
+
+  return(
+    <Home/>
+  )
 }

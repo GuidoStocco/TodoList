@@ -1,9 +1,15 @@
-import { View, Text } from 'react-native';
+import { useAppFonts } from '@/hooks/useAppFonts';
+import {Stack} from 'expo-router';
 
 export default function RootLayout() {
+
+   const fontsLoaded = useAppFonts();
+  
+    if(!fontsLoaded){
+      return null;
+    }
+
  return (
-   <View>
-    <Text>RootLayout</Text>
-   </View>
+  <Stack screenOptions={{headerShown: false}}/>
   );
 }

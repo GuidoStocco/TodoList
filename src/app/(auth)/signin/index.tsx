@@ -1,18 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import {Ionicons} from "@expo/vector-icons"
-import { styles } from './styles';
+import { styles } from '@/styles/signinStyles';
 import { typography } from '@/theme/typography';
-import { useAppFonts } from '@/hooks/useAppFonts';
 import { COLORS } from '@/constants/colors';
+import { router } from 'expo-router';
 
 
 export default function Signin() {
-  const fontsLoaded = useAppFonts();
 
-  if(!fontsLoaded){
-    return null;
+  function handleRegister() {
+    router.push('/(auth)/signup');
   }
+ 
 
   return (
     <View style={styles.container}>
@@ -53,7 +53,7 @@ export default function Signin() {
 
         <View style={styles.containerRegister}>
           <Text style={[styles.textBox3, typography.textMedium]}>Não tem uma conta?</Text>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity onPress={handleRegister}>
             <Text style={[styles.textBtnRegister, typography.textMedium]}>Registrar</Text>
           </TouchableOpacity>
         </View>
