@@ -17,13 +17,13 @@ export const styles = StyleSheet.create({
     box2:{
         flex: 1,
         marginLeft: 30,
-        marginRight: 30
+        marginRight: 30,
     },
     box3:{
-        backgroundColor: "red",
         flex: 1,
         marginLeft: 30,
-        marginRight: 30
+        marginRight: 30,
+        justifyContent: "space-between",
     },
      containerIcon:{
         width: 50,
@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
      },
      containerInput:{
         marginTop: 20,
-        marginBottom: 20,
+        marginBottom: 5,
         flexDirection: "row",
         alignItems: "center",
         borderWidth: 0.2,
@@ -67,7 +67,8 @@ export const styles = StyleSheet.create({
         borderColor: COLORS.text,
         padding: 5,
         paddingLeft: 15,
-        backgroundColor: COLORS.back2
+        backgroundColor: COLORS.back2,
+        height: 50,
      },
      textInput:{
         fontSize: 20,
@@ -76,6 +77,49 @@ export const styles = StyleSheet.create({
      },
      input:{
         paddingLeft: 10
-     }
+     },
+     btnForgot:{
+        alignSelf: "flex-end",
+        paddingTop: 10
+     },
+      btnForgotText:{
+         color: COLORS.text,
+       },
+       btnBox3:{
+         backgroundColor: COLORS.primary,
+         height: 50,
+         borderRadius: 10,
+         justifyContent: "center",
+         alignItems: "center",
+         flexDirection: "row",
+         gap: 8,
+         shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
+        elevation: 8,
+       },
+       textBtn3:{
+         color: COLORS.background,
+         fontSize: 22,
+         fontWeight: 'bold',
+       },
+       containerRegister:{
+         flexDirection: "row",
+         justifyContent: "center",
+         alignItems: "center",
+         height: Dimensions.get("window").height * 0.10,
+       },
+       textBox3:{
+         color: COLORS.text,
+       },
+       textBtnRegister:{
+         color: COLORS.primary,
+         fontWeight: 'bold',
+         paddingLeft: 5
+       }
 
 })

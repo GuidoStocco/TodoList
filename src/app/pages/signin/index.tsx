@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import {Ionicons} from "@expo/vector-icons"
 import { styles } from './styles';
 import { typography } from '@/theme/typography';
@@ -26,9 +26,9 @@ export default function Signin() {
           </View>
       </View>
 
-      <View style={styles.box2}>/
+      <View style={styles.box2}>
         <Text style={[styles.textInput, typography.textMedium]}>Email</Text>
-        <View style={styles.containerInput}>
+        <View style={[styles.containerInput, {marginBottom: 20}]}>
           <Ionicons name="mail-outline" size={20} color={COLORS.primary} />
           <TextInput placeholder='Digite seu email' style={styles.input}/>
         </View>  
@@ -38,9 +38,25 @@ export default function Signin() {
           <Ionicons name="lock-closed-outline" size={20} color={COLORS.primary} />
           <TextInput placeholder='Digite sua senha' style={styles.input} />
         </View>
+
+        <TouchableOpacity style={styles.btnForgot} onPress={() => {}}>
+          <Text style={[styles.btnForgotText, typography.textMedium]}>Esqueceu a senha?</Text>
+        </TouchableOpacity>
+
       </View>
 
       <View style={styles.box3}>
+        <TouchableOpacity style={styles.btnBox3} onPress={() => {}}>
+          <Text style={styles.textBtn3}>Entrar</Text>
+          <Ionicons name="arrow-forward-outline" size={19} color={COLORS.back2} />
+        </TouchableOpacity>
+
+        <View style={styles.containerRegister}>
+          <Text style={[styles.textBox3, typography.textMedium]}>Não tem uma conta?</Text>
+          <TouchableOpacity onPress={() => {}}>
+            <Text style={[styles.textBtnRegister, typography.textMedium]}>Registrar</Text>
+          </TouchableOpacity>
+        </View>
         
       </View>
 
