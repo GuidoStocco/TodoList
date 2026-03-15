@@ -4,18 +4,35 @@ import { styles } from '@/styles/signupStyles';
 import { typography } from '@/theme/typography';
 import { COLORS } from '@/constants/colors';
 import {router} from "expo-router";
+import {auth} from '@/services/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useState } from 'react';
 
 export default function Signup() {
+
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
 
   function handleEntrar(){
     router.push("/(auth)/signin")
   }
 
+  async function handleCadastrar(){
+    try {
+      await createUserWithEmailAndPassword(auth, email, senha);
+      router.push("/(auth)/signin");
+    } catch (error) {
+      console.error("Error creating user:", error);
+    }
+  }
+
+
  return (
        <View style={styles.container}>
           <View style={styles.box1}>
               <View style={styles.containerIcon}>
-                  <Ionicons name="checkmark-done-outline" size={30} color={COLORS.primary} />
+                  <Ionicons name="lock-closed-outline" size={30} color={COLORS.primary} />
               </View>
               <View style={styles.containerText}>
                 <Text style={[styles.text1, typography.title]}>Comece agora</Text>
@@ -49,8 +66,8 @@ export default function Signup() {
           </View>
 
           <View style={styles.box3}>
-            <TouchableOpacity style={styles.btnBox3} onPress={() => {}}>
-              <Text style={styles.textBtn3}>Entrar</Text>
+            <TouchableOpacity style={styles.btnBox3} onPress={handleCadastrar}>
+              <Text style={styles.textBtn3}>Cadastrar</Text>
               <Ionicons name="arrow-forward-outline" size={19} color={COLORS.back2} />
             </TouchableOpacity>
 
