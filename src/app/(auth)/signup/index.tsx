@@ -54,6 +54,12 @@ export default function Signup() {
             </View>  
 
             <Text style={[styles.textInput, typography.textMedium]}>Senha</Text>
+            <View style={[styles.containerInput, {marginBottom: 10}]}>
+              <Ionicons name="lock-closed-outline" size={20} color={COLORS.primary} />
+              <TextInput placeholder='Digite sua senha' style={styles.input} />
+            </View>
+
+            <Text style={[styles.textInput, typography.textMedium]}>Confirmar senha</Text>
             <View style={styles.containerInput}>
               <Ionicons name="lock-closed-outline" size={20} color={COLORS.primary} />
               <TextInput placeholder='Digite sua senha' style={styles.input} />

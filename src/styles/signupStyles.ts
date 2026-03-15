@@ -11,18 +11,21 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginLeft: 30,
-        marginRight: 30,    
+        marginRight: 30,  
+        
     },
     box2:{
-        flex: 1,
+      
+        marginTop: -20,
         marginLeft: 30,
         marginRight: 30,
     },
     box3:{
-        flex: 1,
+        
         marginLeft: 30,
         marginRight: 30,
         justifyContent: "space-between", 
+        
     },
      containerIcon:{
         width: 50,
@@ -102,7 +105,7 @@ export const styles = StyleSheet.create({
         shadowRadius: 4.65,
         elevation: 8,
 
-        marginTop: Dimensions.get("window").height * 0.08,
+        marginTop: Dimensions.get("window").height * 0.06,
        },
        textBtn3:{
          color: COLORS.background,
