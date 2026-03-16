@@ -1,5 +1,5 @@
 import { useAppFonts } from '@/hooks/useAppFonts';
-import {Stack} from 'expo-router';
+import {Stack, Slot} from 'expo-router';
 
 export default function RootLayout() {
 
@@ -10,6 +10,20 @@ export default function RootLayout() {
     }
 
  return (
-  <Stack screenOptions={{headerShown: false}}/>
+  <Stack>
+      <Stack.Screen name="index" 
+        options={{ headerShown: false }} 
+      />
+
+      <Stack.Screen
+        name='(auth)'
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name='(app)'
+        options={{headerShown:false}}
+      />
+  </Stack>
   );
 }

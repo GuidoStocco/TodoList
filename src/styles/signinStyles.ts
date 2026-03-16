@@ -121,6 +121,10 @@ export const styles = StyleSheet.create({
          color: COLORS.primary,
          fontWeight: 'bold',
          paddingLeft: 5
+       },
+       textError:{
+         color: 'red',
+         marginTop: 8
        }
 
 })

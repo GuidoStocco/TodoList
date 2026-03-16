@@ -79,7 +79,8 @@ export const styles = StyleSheet.create({
         
      },
      input:{
-        paddingLeft: 10
+        paddingLeft: 10,
+        
      },
      btnForgot:{
         alignSelf: "flex-end",
@@ -125,6 +126,11 @@ export const styles = StyleSheet.create({
          color: COLORS.primary,
          fontWeight: 'bold',
          paddingLeft: 5
+       },
+       textErrors:{
+         marginBottom: 8,
+         marginLeft: 10,
+         color: 'red'
        }
 
 })

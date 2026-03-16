@@ -1,5 +1,5 @@
-import Signin from './(auth)/signin';
-import Home from './(app)/home';
+import SignIn from '@/app/(auth)/signin/page'
+import Home from './(app)/home/page';
 
 export default function Index() {
 
@@ -7,7 +7,7 @@ export default function Index() {
 
   if(!loading) {
     return(
-      <Signin />
+      <SignIn />
     )
   }
 

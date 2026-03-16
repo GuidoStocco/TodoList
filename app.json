@@ -2,6 +2,7 @@
   "expo": {
     "name": "todolist",
     "slug": "todolist",
+    "scheme": "todolist",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
