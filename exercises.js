@@ -98,6 +98,7 @@
 //   let left = 0
 //   let right = arr.length -1
 
+
 //   while (left < right) {
 //     let temp = arr[left]
 //     arr[left] = arr[right]
@@ -143,3 +144,81 @@
 // }
 
 // console.log(isAnagram('listen', 'silent'))
+
+
+
+// function maxSumSubarray(arr, k) {
+
+    
+//   let maxSum = 0
+//   let windowSum = 0
+
+//   for (let i = 0; i < k; i++) {
+//     windowSum += arr[i]
+//   }
+
+//   maxSum = windowSum
+
+//   for (let i = k; i < arr.length; i++) {
+
+//     windowSum = windowSum - arr[i - k] + arr[i]
+
+//     maxSum = Math.max(maxSum, windowSum)
+
+//   }
+
+  
+//   return maxSum
+// }
+
+
+// console.log(maxSumSubarray([2,1,5,1,3,2]))
+
+
+
+// function isPalindrome(s) {
+
+//   let cleaned = s.toLowerCase().replace(/[^a-z0-9]/g, '')
+
+//   let left = 0
+//   let right = cleaned.length - 1
+
+//   while (left < right) {
+
+//     if (cleaned[left] !== cleaned[right]) {
+//       return false
+//     }
+
+//     left++
+//     right--
+
+//   }
+
+//   return true
+// }
+
+// console.log(isPalindrome("race a car"))
+
+
+// function moveZeroes(nums) {
+
+//   let insertPos = 0
+
+//   for (let i = 0; i < nums.length; i++) {
+
+//     if (nums[i] !== 0) {
+//       nums[insertPos] = nums[i]
+//       insertPos++
+//     }
+
+//   }
+
+//   while (insertPos < nums.length) {
+//     nums[insertPos] = 0
+//     insertPos++
+//   }
+
+//   return nums
+// }
+
+// console.log(moveZeroes([0,0,5,2,0,7]))
