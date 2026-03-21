@@ -45,7 +45,7 @@ export default function SignInScreen({onSubmit, control, handleSubmit, errors, i
             control={control}
             defaultValue=''
             render={({field:{onBlur, onChange, value}}) => (
-              <View>
+              <View style={{flex: 1}}>
                   <TextInput
                       placeholder='Digite seu email'
                       autoCapitalize='none'
@@ -68,7 +68,7 @@ export default function SignInScreen({onSubmit, control, handleSubmit, errors, i
               control={control}
               defaultValue=''
               render={({field: {onBlur, onChange, value}}) => (
-                <View>
+                <View style={{flex: 1}}>
                     <TextInput
                         placeholder='********'
                         style={styles.input}

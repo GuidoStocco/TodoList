@@ -49,7 +49,7 @@ export default function SignUpScreen({onSubmit, control, handleSubmit, errors, i
                   name="username"
                   defaultValue=""
                   render={({field: {onChange, onBlur,value}}) => (
-                      <View>
+                      <View style={{flex: 1}}>
                           <TextInput 
                               placeholder='Jane Doe' 
                               style={styles.input}
@@ -72,7 +72,7 @@ export default function SignUpScreen({onSubmit, control, handleSubmit, errors, i
                   defaultValue=''
                   control={control}
                   render={({field: {onBlur, onChange, value}}) => (
-                      <View>
+                      <View style={{flex: 1}}>
                           <TextInput
                               placeholder='Digite seu email'
                               style={styles.input}
@@ -94,7 +94,7 @@ export default function SignUpScreen({onSubmit, control, handleSubmit, errors, i
                   defaultValue=''
                   control={control}
                   render={({field: {onBlur, onChange, value}}) => (
-                      <View>
+                      <View style={{flex: 1}}>
                           <TextInput
                               placeholder='Digite sua senha'
                               style={styles.input}
@@ -116,7 +116,7 @@ export default function SignUpScreen({onSubmit, control, handleSubmit, errors, i
                   defaultValue=''
                   control={control}
                   render={({field: {onBlur, onChange, value}}) => (
-                      <View>
+                      <View style={{flex: 1}}>
                           <TextInput
                               placeholder='Confirme sua senha'
                               style={styles.input}
@@ -145,7 +145,7 @@ export default function SignUpScreen({onSubmit, control, handleSubmit, errors, i
             <View style={styles.containerRegister}>
               <Text style={[styles.textBox3, typography.textMedium]}>Já tem uma conta?</Text>
               <TouchableOpacity onPress={handleEntrar}>
-                <Text style={[styles.textBtnRegister, typography.textMedium]}>Entrar</Text>
+                <Text style={[styles.textBtnLogin, typography.textMedium]}>Entrar</Text>
               </TouchableOpacity>
             </View>
             

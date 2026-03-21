@@ -222,3 +222,25 @@
 // }
 
 // console.log(moveZeroes([0,0,5,2,0,7]))
+
+
+// function maxProfit(prices) {
+
+//   let minPrice = Infinity
+//   let maxProfit = 0
+
+//   for (let price of prices) {
+
+//     if (price < minPrice) {
+//       minPrice = price
+//     } else {
+//       let profit = price - minPrice
+//       maxProfit = Math.max(maxProfit, profit)
+//     }
+
+// }
+
+// return maxProfit
+// }
+
+// console.log(maxProfit([7,1,5,3,6,4]));

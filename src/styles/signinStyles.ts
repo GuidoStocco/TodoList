@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
      containerIcon:{
         width: 50,
         height: 50,
-        backgroundColor: COLORS.title,
+        backgroundColor: COLORS.back2,
         borderRadius: 10,
         justifyContent: "center",
         alignItems: "center",
@@ -77,7 +77,8 @@ export const styles = StyleSheet.create({
         
      },
      input:{
-        paddingLeft: 10
+        paddingLeft: 10,
+        flex: 1,
      },
      btnForgot:{
         alignSelf: "flex-end",
@@ -125,6 +126,7 @@ export const styles = StyleSheet.create({
        textError:{
          color: 'red',
          marginTop: 8
-       }
+       },
+       
 
 })

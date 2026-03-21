@@ -4,6 +4,7 @@ import { useAuthContext } from "@/hooks/useAuthContext";
 import { View, ActivityIndicator } from "react-native";
 import {COLORS} from '@/constants/colors'
 
+
 export default function Index() {
 
   const { user, loading } = useAuthContext();

@@ -2,6 +2,7 @@ import { createContext, ReactNode, useState, useEffect } from "react";
 import {User, onAuthStateChanged} from "firebase/auth";
 import { authService } from "@/services/auth-services";
 import {auth} from "@/services/firebase";
+import {router} from "expo-router";
 
 
 interface AuthContextData {
@@ -41,7 +42,7 @@ export function AuthProvider({children}: AuthProps) {
 
       const handleLogout = async() => {
         await authService.Logout();
-        setUser(null);
+        router.replace('/(auth)/signin/page')
       }
 
     return(

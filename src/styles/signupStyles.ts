@@ -12,11 +12,9 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         marginLeft: 30,
         marginRight: 30,  
-        
+        marginBottom: 20
     },
     box2:{
-      
-        marginTop: -20,
         marginLeft: 30,
         marginRight: 30,
     },
@@ -30,7 +28,7 @@ export const styles = StyleSheet.create({
      containerIcon:{
         width: 50,
         height: 50,
-        backgroundColor: COLORS.title,
+        backgroundColor: COLORS.back2,
         borderRadius: 10,
         justifyContent: "center",
         alignItems: "center",
@@ -80,7 +78,7 @@ export const styles = StyleSheet.create({
      },
      input:{
         paddingLeft: 10,
-        
+        flex: 1
      },
      btnForgot:{
         alignSelf: "flex-end",
@@ -106,7 +104,7 @@ export const styles = StyleSheet.create({
         shadowRadius: 4.65,
         elevation: 8,
 
-        marginTop: Dimensions.get("window").height * 0.06,
+        marginTop: Dimensions.get("window").height * 0.05,
        },
        textBtn3:{
          color: COLORS.background,
@@ -123,14 +121,20 @@ export const styles = StyleSheet.create({
          color: COLORS.text,
        },
        textBtnRegister:{
-         color: COLORS.primary,
+         color: COLORS.background,
          fontWeight: 'bold',
+         fontSize: 22,
          paddingLeft: 5
        },
        textErrors:{
          marginBottom: 8,
          marginLeft: 10,
          color: 'red'
+       },
+       textBtnLogin:{
+         color: COLORS.primary,
+         fontWeight: 'bold',
+         paddingLeft: 5
        }
 
 })

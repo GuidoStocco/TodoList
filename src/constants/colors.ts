@@ -5,4 +5,6 @@ export const COLORS = {
     title: "#E0DAD0",
     back2: "#EBE7DD",
     icon: "#0cbb46",
+    textHome: "#3c6b4c",
+    subTitle: "#888"
 }
