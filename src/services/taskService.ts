@@ -28,23 +28,51 @@ export const taskService = {
         });
     },
 
-    monitorar: async(uid: string, ) => {
+    subscribeTask: async(uid: string, callback: (tasks: Task[]) => void ) => {
 
         const taskRef = collection(db, "users", uid, "tasks");
 
         const q = query(taskRef, orderBy("createdAt", "desc"));
 
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const tasks = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            })) as Task[];
+            callback(tasks);
+        });
+        return unsubscribe;
     },
 
-    updateTask: () => {
+    updateTask: async (uid: string, taskId: string, data: Partial<{
+        title: string;
+        description: string;
+        date: Date;
+        important: boolean;
+    }>) => {
+        const refUpdate = doc(db, "users", uid, "tasks", taskId)
+
+        await updateDoc(refUpdate, {
+            ...data,
+            ...(data.date && { date: Timestamp.fromDate(data.date) })
+        })
+    },
+
+    deleteTask: async(uid: string, taskId: string) => {
+
+        const ref = doc(db, "users", uid, "tasks", taskId)
+
+        await deleteDoc(ref)
 
     },
 
-    deleteTask: () => {
+    toggleTask: async (uid: string, completed: boolean, taskId: string) => {
 
-    },
+        const ref = doc(db, "users", uid, "tasks", taskId)
 
-    toggleTask: () => {
+        await updateDoc(ref, {
+            completed: !completed
+        })
 
     },
 
