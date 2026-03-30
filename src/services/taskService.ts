@@ -5,30 +5,32 @@ export type Task = {
     id: string;
     title: string;
     description: string;
-    date: Timestamp;
+    date: Date;
     completed: boolean;
     important: boolean;
-    createdAt: Timestamp;
+    createdAt: Date;
 }
+
+
 
 
 export const taskService = {
 
-    createTask: async (uid: string, data:{title: string, description: string, date: Timestamp, important: boolean}) => {
+    createTask: async (uid: string, data:{title: string, description: string, date: Date, important: boolean}) => {
 
         const taskRef = collection(db, "users", uid, "tasks");
 
         await addDoc(taskRef, {
             title: data.title,
             description: data.description,
-            date: data.date,
+            date: Timestamp.fromDate(data.date),
             completed: false,
             important: data.important,
             createdAt: Timestamp.now(),
         });
     },
 
-    subscribeTask: async(uid: string, callback: (tasks: Task[]) => void ) => {
+    subscribeTask: (uid: string, callback: (tasks: Task[]) => void ) => {
 
         const taskRef = collection(db, "users", uid, "tasks");
 
