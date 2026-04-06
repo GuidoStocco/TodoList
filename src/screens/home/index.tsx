@@ -3,11 +3,20 @@ import {styles} from '@/styles/homeStyles';
 import { Ionicons } from '@expo/vector-icons';
 import { randomMessages } from '@/hooks/useHome';
 import { useAuthContext } from '@/hooks/useAuthContext';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import TaskScreen from '../task';
 import TaskScreenTomorrow from '../task/tomorrow';
+import { Task } from '@/services/taskService';
 
-export default function HomeScreen() {
+interface HomeScreenProps{
+    tasks: Task[];
+    deleteTask: () => Promise<void>;
+    toggleTask: () => Promise<void>;
+    loading: boolean;
+}
+
+
+export default function HomeScreen({tasks, deleteTask, toggleTask, loading}: HomeScreenProps) {
 
   const {user} = useAuthContext()
 
