@@ -77,5 +77,17 @@ export const styles = StyleSheet.create({
         color: COLORS.primary,
         fontWeight: 'bold',
         fontSize: 15
-    }
+    },
+    modalBtn:{
+        justifyContent:'center',
+        alignItems: 'center'
+    },
+   viewModal:{
+        backgroundColor: COLORS.primary,
+        position: 'absolute',
+        bottom: 12,
+        padding: 15,
+        borderRadius: 30,
+        elevation: 15,
+   }
 })

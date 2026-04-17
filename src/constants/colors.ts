@@ -6,5 +6,6 @@ export const COLORS = {
     back2: "#EBE7DD",
     icon: "#0cbb46",
     textHome: "#3c6b4c",
-    subTitle: "#888"
+    subTitle: "#888",
+    white: '#Fff'
 }

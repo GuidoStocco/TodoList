@@ -1,3 +1,9 @@
+import {useState, useMemo} from 'react';
+import { useAuthContext } from './useAuthContext';
+import { useTask} from './useTasks';
+import {Task} from '@/services/taskService'
+
+
 const messages = [
   "Vamos pra cima 🚀",
   "Foco no progresso 🔥",
@@ -6,3 +12,67 @@ const messages = [
 ];
 
 export const randomMessages = messages[Math.floor(Math.random() * messages.length)];
+
+interface HomeTaskProps{
+  tasks: Task[];
+}
+
+
+
+export function useHome({tasks}: HomeTaskProps) {
+
+  const {user} = useAuthContext();
+
+  const [search, setSearch] = useState("");
+
+  const [visibleModal, setVisibleModal] = useState(false);
+
+
+  const isToday = (date: Date) => {
+      const today = new Date();
+      return date.toDateString() === today.toDateString();
+  };
+
+
+  const isTomorrow = (date: Date) => {
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    return date.toDateString() === tomorrow.toDateString();
+  };
+
+
+  const filteredTasks = useMemo(() => {
+        return tasks.filter((task) => 
+          task.title.toLowerCase().includes(search.toLowerCase())
+        );
+  }, [tasks, search])
+
+
+  const todayTask = useMemo(() => {
+      return filteredTasks.filter((task) => 
+        isToday(task.date)
+      )
+  }, [filteredTasks])
+
+
+
+  const tomorrowTask = useMemo(() => {
+    return filteredTasks.filter((task) => 
+      isTomorrow(task.date)
+    )
+  }, [filteredTasks])
+
+
+
+  return{
+    todayTask,
+    tomorrowTask,
+    search,
+    user,
+    setSearch,
+    randomMessages,
+    visibleModal,
+    setVisibleModal
+  }
+}

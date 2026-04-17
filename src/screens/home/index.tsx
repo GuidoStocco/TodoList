@@ -1,28 +1,35 @@
-import { View, Text, TextInput, ScrollView, Keyboard, TouchableNativeFeedback, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, TextInput, ScrollView, Keyboard, TouchableNativeFeedback, TouchableOpacity, FlatList, Modal } from 'react-native';
 import {styles} from '@/styles/homeStyles';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, Foundation, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { randomMessages } from '@/hooks/useHome';
 import { useAuthContext } from '@/hooks/useAuthContext';
 import { useState, useMemo } from 'react';
 import TaskScreen from '../task';
 import TaskScreenTomorrow from '../task/tomorrow';
 import { Task } from '@/services/taskService';
+import { COLORS } from '@/constants/colors';
+import ModalScreen from './modal';
+
 
 interface HomeScreenProps{
-    tasks: Task[];
-    deleteTask: () => Promise<void>;
-    toggleTask: () => Promise<void>;
+    user: any;
+    tasks: any
+    deleteTask: (taskId: string) => Promise<void>;
+    toggleTask: (taskId: string, completed: boolean) => Promise<void>;
     loading: boolean;
+    todayTask: Task[];
+    tomorrowTask: Task[];
+    search: string;
+    setSearch: (search: string) => void;
+    visibleModal: boolean;
+    setVisibleModal: (visibleModal:true) => void;
 }
 
 
-export default function HomeScreen({tasks, deleteTask, toggleTask, loading}: HomeScreenProps) {
+export default function HomeScreen({tasks, deleteTask, toggleTask, loading, todayTask, tomorrowTask, search, setSearch, user, visibleModal, setVisibleModal}: HomeScreenProps) {
 
-  const {user} = useAuthContext()
-
-  const [tarefas, setTarefas] = useState(['task', 'ug'])
-  const [tomorrow, setTomorrow] = useState(['task'])
-
+    
+  
  return (
   <TouchableNativeFeedback onPress={Keyboard.dismiss} accessible={false}>
    <View style={styles.containerHome}>
@@ -32,10 +39,12 @@ export default function HomeScreen({tasks, deleteTask, toggleTask, loading}: Hom
         <View style={styles.containerInput}>
           <Ionicons name='search-outline' style={styles.iconInput} size={18}/>
           <TextInput
-          onSubmitEditing={Keyboard.dismiss}
-          style={styles.input}
-          placeholder='O que você procura'
-          placeholderTextColor="#888"
+            value={search}
+            onChangeText={setSearch}
+            onSubmitEditing={Keyboard.dismiss}
+            style={styles.input}
+            placeholder='O que você procura'
+            placeholderTextColor="#888"
         />
         </View>
       </View>
@@ -44,20 +53,25 @@ export default function HomeScreen({tasks, deleteTask, toggleTask, loading}: Hom
           <View style={styles.containerBox2}>
               <Text style={styles.textBox2}>HOJE</Text>
               <View style={styles.containerText}>
-                  <Text style={styles.textContainer}>{tarefas.length} {tarefas.length === 1 ? 'Task' : 'Tasks'}</Text>
+                  <Text style={styles.textContainer}>{todayTask.length} {todayTask.length === 1 ? 'Task' : 'Tasks'}</Text>
               </View>
           </View>
 
-          <View>
-              <FlatList
-                  data={tarefas}
-                  keyExtractor={(item) => item.toString() }
-                  showsVerticalScrollIndicator={false}
-                  renderItem={({item}) => (
-                        <TaskScreen tarefas={item}/>
-                  )}
-              />
-          </View>
+          {tasks ? (
+            <View>
+                <FlatList
+                        data={tasks}
+                        keyExtractor={(item) => item.id.toString()}
+                        showsVerticalScrollIndicator={false}
+                        renderItem={({item}) => (
+                            <TaskScreen task={item} onToggle={toggleTask} onDelete={deleteTask}/>
+                    )}
+                />
+            </View>
+          ) : 
+          (
+              <Text>Não tem nenhuma task hoje!</Text>         
+          )}
       </View>
 
       <View style={styles.box3}>
@@ -65,14 +79,25 @@ export default function HomeScreen({tasks, deleteTask, toggleTask, loading}: Hom
                 <Text style={styles.textBox3}>AMANHÃ</Text>
             </View>
             <FlatList
-                data={tomorrow}
-                keyExtractor={(item) => item.toString() }
+                data={tomorrowTask}
+                keyExtractor={(item) => item.id.toString() }
                 showsVerticalScrollIndicator={false}
                 renderItem={({item}) => (
-                    <TaskScreenTomorrow tarefasTomorrow={item}/>
+                    <></>
                 )}
             />    
       </View>
+
+      {/* MODAL */}
+      <TouchableOpacity style={styles.modalBtn} onPress={() => setVisibleModal(true)}>
+        <View style={styles.viewModal}>
+            <MaterialCommunityIcons name='text-box-edit-outline' color={COLORS.white} size={35}/>
+        </View>
+      </TouchableOpacity>
+
+      <Modal visible={visibleModal} animationType='slide'>
+            <ModalScreen/>
+      </Modal>
   
    </View>
   </TouchableNativeFeedback>
