@@ -1,7 +1,7 @@
 import {useState, useMemo} from 'react';
 import { useAuthContext } from './useAuthContext';
 import { useTask} from './useTasks';
-import {Task} from '@/services/taskService'
+import { taskService, Task } from '@/services/taskService';
 
 
 const messages = [
@@ -13,15 +13,14 @@ const messages = [
 
 export const randomMessages = messages[Math.floor(Math.random() * messages.length)];
 
-interface HomeTaskProps{
-  tasks: Task[];
-}
 
 
 
-export function useHome({tasks}: HomeTaskProps) {
+
+export function useHome() {
 
   const {user} = useAuthContext();
+  const [tasks, setTasks] = useState<Task[]>([])
 
   const [search, setSearch] = useState("");
 

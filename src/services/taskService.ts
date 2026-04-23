@@ -11,12 +11,17 @@ export type Task = {
     createdAt: Date;
 }
 
-
+export type CreateTaskData = {
+    title: string;
+    description: string;
+    date: Date;
+    important: boolean;
+}
 
 
 export const taskService = {
 
-    createTask: async (uid: string, data:{title: string, description: string, date: Date, important: boolean}) => {
+    createTask: async (uid: string, data:{title: string, description: string, date: Date, important: boolean }) => {
 
         const taskRef = collection(db, "users", uid, "tasks");
 

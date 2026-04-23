@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import { useAuthContext } from './useAuthContext'; 
-import { taskService, Task } from '@/services/taskService';
+import { taskService, Task, CreateTaskData} from '@/services/taskService';
 
 
 export function useTask(){
@@ -24,7 +24,7 @@ export function useTask(){
     },[user?.uid]);
 
 
-    const createTask = async(data:{title:string, date:Date, important: boolean, description: string}) => {
+    const createTask = async(data: CreateTaskData) => {
         if(!user?.uid) return
 
         await taskService.createTask(user.uid, data)

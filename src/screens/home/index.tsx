@@ -6,27 +6,27 @@ import { useAuthContext } from '@/hooks/useAuthContext';
 import { useState, useMemo } from 'react';
 import TaskScreen from '../task';
 import TaskScreenTomorrow from '../task/tomorrow';
-import { Task } from '@/services/taskService';
+import { CreateTaskData, Task } from '@/services/taskService';
 import { COLORS } from '@/constants/colors';
 import ModalScreen from './modal';
 
 
 interface HomeScreenProps{
     user: any;
-    tasks: any
+    tasks: any;
+    createTask: (data: CreateTaskData) => Promise<void>;
     deleteTask: (taskId: string) => Promise<void>;
     toggleTask: (taskId: string, completed: boolean) => Promise<void>;
-    loading: boolean;
     todayTask: Task[];
     tomorrowTask: Task[];
     search: string;
     setSearch: (search: string) => void;
     visibleModal: boolean;
-    setVisibleModal: (visibleModal:true) => void;
+    setVisibleModal: (visibleModal:boolean) => void;
 }
 
 
-export default function HomeScreen({tasks, deleteTask, toggleTask, loading, todayTask, tomorrowTask, search, setSearch, user, visibleModal, setVisibleModal}: HomeScreenProps) {
+export default function HomeScreen({createTask, tasks, deleteTask, toggleTask, todayTask, tomorrowTask, search, setSearch, user, visibleModal, setVisibleModal}: HomeScreenProps) {
 
     
   
@@ -96,7 +96,7 @@ export default function HomeScreen({tasks, deleteTask, toggleTask, loading, toda
       </TouchableOpacity>
 
       <Modal visible={visibleModal} animationType='slide'>
-            <ModalScreen/>
+            <ModalScreen setVisibleModal={setVisibleModal} createTask={createTask}/>
       </Modal>
   
    </View>
