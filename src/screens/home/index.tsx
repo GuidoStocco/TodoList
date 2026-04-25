@@ -95,7 +95,7 @@ export default function HomeScreen({createTask, tasks, deleteTask, toggleTask, t
         </View>
       </TouchableOpacity>
 
-      <Modal visible={visibleModal} animationType='slide'>
+      <Modal visible={visibleModal} animationType='slide' transparent={true}>
             <ModalScreen setVisibleModal={setVisibleModal} createTask={createTask}/>
       </Modal>
   
