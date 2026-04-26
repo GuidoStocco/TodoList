@@ -36,9 +36,16 @@ export default function ModalScreen({setVisibleModal}: ModalScreenProps) {
                         <Text style={styles.textTitle}>Descrição</Text>
                         <View style={styles.viewContainer}>
                             <TextInput
-                                placeholder='Adicione algum contexto? ex: Estudar verb to be'
+                                placeholder='Adicione algum contexto... ex: Estudar verb to be'
                                 style={styles.input}
                             />
+                        </View>
+                    </View>
+
+                    <View style={styles.viewContainer}>
+                        <View style={styles.priority}>  
+                            <Ionicons name='alert-circle-outline' size={28} color={COLORS.primary}/>
+                            <Text style={styles.textPriority}>Marque como prioridade, (opcional)</Text>
                         </View>
                     </View>
                 </View>

@@ -3,7 +3,7 @@ import {COLORS} from '@/constants/colors'
 
 export const styles = StyleSheet.create({
    container:{
-    height: '50%',
+    height: '60%',
     backgroundColor: COLORS.title
    },
    closeContainer:{
@@ -48,5 +48,14 @@ export const styles = StyleSheet.create({
    },
    input:{
       fontSize: 16
+   },
+   priority:{
+      flexDirection: 'row',
+      alignItems: 'center',
+      flex: 1,
+   },
+   textPriority:{
+      paddingLeft: 5,
+      color: COLORS.subTitle
    }
 })
