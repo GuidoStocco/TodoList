@@ -23,10 +23,13 @@ interface HomeScreenProps{
     setSearch: (search: string) => void;
     visibleModal: boolean;
     setVisibleModal: (visibleModal:boolean) => void;
+    important: boolean;
+    setImportant: (important:boolean) => void;
 }
 
 
-export default function HomeScreen({createTask, tasks, deleteTask, toggleTask, todayTask, tomorrowTask, search, setSearch, user, visibleModal, setVisibleModal}: HomeScreenProps) {
+export default function HomeScreen({createTask, tasks, deleteTask, toggleTask, todayTask, tomorrowTask, search, 
+    setSearch, user, visibleModal, setVisibleModal, important, setImportant}: HomeScreenProps) {
 
     
   
@@ -96,7 +99,9 @@ export default function HomeScreen({createTask, tasks, deleteTask, toggleTask, t
       </TouchableOpacity>
 
       <Modal visible={visibleModal} animationType='slide' transparent={true}>
-            <ModalScreen setVisibleModal={setVisibleModal} createTask={createTask}/>
+            <ModalScreen setVisibleModal={setVisibleModal} createTask={createTask}
+                setImportant={setImportant} important={important}
+            />
       </Modal>
   
    </View>

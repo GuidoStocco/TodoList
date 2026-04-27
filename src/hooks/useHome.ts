@@ -26,6 +26,8 @@ export function useHome() {
 
   const [visibleModal, setVisibleModal] = useState(false);
 
+  const [important, setImportant] = useState<boolean>(false);
+
 
   const isToday = (date: Date) => {
       const today = new Date();
@@ -72,6 +74,8 @@ export function useHome() {
     setSearch,
     randomMessages,
     visibleModal,
-    setVisibleModal
+    setVisibleModal,
+    important,
+    setImportant
   }
 }

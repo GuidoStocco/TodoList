@@ -3,8 +3,9 @@ import {COLORS} from '@/constants/colors'
 
 export const styles = StyleSheet.create({
    container:{
-    height: '60%',
-    backgroundColor: COLORS.title
+    height: '65%',
+    backgroundColor: COLORS.title,
+    justifyContent: 'space-between'
    },
    closeContainer:{
       justifyContent: 'space-between',
@@ -14,7 +15,8 @@ export const styles = StyleSheet.create({
    text:{
       fontSize: 17,
       fontWeight: 'bold',
-      flex: 1
+      flex: 1,
+      color: COLORS.primary
    },
    btnClose:{
       flex:1,
@@ -56,6 +58,26 @@ export const styles = StyleSheet.create({
    },
    textPriority:{
       paddingLeft: 5,
-      color: COLORS.subTitle
+      color: COLORS.subTitle,
+      fontSize: 16
+   },
+   btnTask:{
+      margin: 10,
+      marginBottom: 20,
+      height: 50
+   },
+   btn:{
+      backgroundColor: COLORS.primary,
+      flex: 1,
+      borderRadius: 10,
+      justifyContent: 'center',
+      alignItems: 'center'
+   },
+   textBtn:{
+      fontSize: 20,
+      color: COLORS.title
+   },
+   switch:{
+      flex: 1
    }
 })
